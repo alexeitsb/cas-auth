@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
     resources :passwords, only: [:new, :create] do
       get "edit", on: :collection
-      put "update", on: :collection
+      put "update", on: :collection, as: "update"
     end
   end
 end

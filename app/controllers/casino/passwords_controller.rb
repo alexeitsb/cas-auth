@@ -29,7 +29,7 @@ class CASino::PasswordsController < CASino::ApplicationController
         unless params[:password].size >= 4
           flash.now[:error] = "A senha deve ter pelo menos quatro caracteres."
         else
-          @user.update_attributes(password: params[:password_new], reset_password_token: nil)
+          @user.update_attributes(password: params[:password], reset_password_token: nil)
           flash.now[:notice] = "Sua senha foi atualizada. Utilize ela a partir do seu próximo acesso."
         end
       else
