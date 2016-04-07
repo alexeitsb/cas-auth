@@ -1,0 +1,86 @@
+// Default CASino settings
+
+// $buttonColor: #0074ad;
+// $buttonSecondaryColor: #c2c2c2;
+// $linkColor: #0074ad;
+// $logo: "logo.png";
+// $logoRetina: "logo@2x.png";
+// $logoWidth: 146px;
+// $logoHeight: 34px;
+
+// @import 'casino';
+
+form {
+  padding: 45px 0px 45px 25px;
+  background-color: #E8E8E8;
+  box-shadow: 0 0 7px 0 gray;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  display: inline-block;
+  width: 500px;
+}
+
+form .field {
+  margin-bottom: 15px;
+}
+
+form .action {
+  margin-top: 22px;
+}
+
+form input[type="text"], input[type="password"] {
+  font-size: 18px;
+  height: 30px;
+  width: 400px;
+}
+
+form .field .field_error {
+  font-size: 13px;
+  font-style: italic;
+  color: #FF0000;
+  width: 500px;
+}
+
+.yield {
+  margin: 40px 60px;
+}
+
+.flash {
+  font-size: 16px;
+  height: 25px;
+  margin: 10px 60px;
+}
+
+.flash_notice {
+  padding: 5px;
+  background-color: #C1E6C1;
+  border: solid thin 008A00;
+  border-radius: 8px;
+}
+
+.flash_error {
+  padding: 5px;
+  background-color: #FFCCCC;
+  border: solid thin #CC0000;
+  border-radius: 8px;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.border-top {
+  border-top: solid thin #808080;
+}
+
+.border-bottom {
+  border-bottom: solid thin #808080;
+}
+
+.padding-top {
+  padding-top: 10px;
+}
+
+.padding-bottom {
+  padding-bottom: 10px;
+}

@@ -1,0 +1,56 @@
+defaults: &defaults
+  login_ticket:
+    lifetime: 600
+  service_ticket:
+    lifetime_unconsumed: 300
+    lifetime_consumed: 86400
+  proxy_ticket:
+    lifetime_unconsumed: 300
+    lifetime_consumed: 86400
+  frontend:
+    sso_name: "CASino"
+    footer_text: "Powered by <a href=\"http://rbcas.com/\">CASino</a>"
+
+development:
+  <<: *defaults
+  authenticators:
+    database:
+      authenticator: "ActiveRecord"
+      options:
+        connection:
+          adapter: "mysql2"
+          host: "localhost"
+          username: "root"
+          password: ""
+          database: "cas-auth_development"
+        table: "casino_users"
+        username_column: "username"
+        password_column: "encrypted_password"
+        extra_attributes:
+
+test:
+  <<: *defaults
+  authenticators:
+    static:
+      class: "CASino::StaticAuthenticator"
+      options:
+        users:
+          testuser:
+            password: "foobar123"
+
+production:
+  <<: *defaults
+  authenticators:
+    database:
+      authenticator: "ActiveRecord"
+      options:
+        connection: "<%= ENV['DATABASE_URL'] %>"
+        table: "casino_users"
+        username_column: "username"
+        password_column: "encrypted_password"
+        extra_attributes:
+          email: "email"
+          name: "name"
+          document: "document"
+          telephone: "telephone"
+          services: "services"

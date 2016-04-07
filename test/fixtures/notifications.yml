@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entity: 1
+  from: MyString
+  to: MyText
+  cc: MyText
+  bcc: MyText
+  reply_to: MyString
+  headers: MyText
+  subject: MyString
+  body: MyText
+  attachments: MyText
+  tag: MyString
+  requested_at: 2016-04-07 15:28:39
+  message_id: MyString
+
+two:
+  entity: 1
+  from: MyString
+  to: MyText
+  cc: MyText
+  bcc: MyText
+  reply_to: MyString
+  headers: MyText
+  subject: MyString
+  body: MyText
+  attachments: MyText
+  tag: MyString
+  requested_at: 2016-04-07 15:28:39
+  message_id: MyString

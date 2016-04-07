@@ -1,0 +1,3 @@
+pt-BR:
+  login_credential_acceptor:
+    invalid_login_credentials: "O nome de usuário ou a senha que você informou está errado. Por favor verifique suas informações e tente novamente."

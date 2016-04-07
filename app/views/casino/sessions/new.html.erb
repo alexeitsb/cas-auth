@@ -1,0 +1,10 @@
+<%= form_tag(login_path, id: "form_login") do %>
+  <%= hidden_field_tag :lt, CASino::LoginTicket.create.ticket %>
+  <%= hidden_field_tag :service, params[:service] unless params[:service].nil? %>
+  <div class="field"><%= text_field_tag :username, params[:username], placeholder: "Usuário", autofocus: true %></div>
+  <div class="field"><%= password_field_tag :password, "", placeholder: "Senha" %></div>
+  <div class="action">
+    <%= button_tag "ENTRAR" %>
+    <span style="padding-left: 15px;"><%= link_to "Esqueci minha senha", main_app.new_casino_password_path %></span>
+  </div>
+<% end %>

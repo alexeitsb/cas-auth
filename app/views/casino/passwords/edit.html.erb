@@ -1,0 +1,14 @@
+<%= form_tag(main_app.casino_passwords_path, method: :put) do %>
+  <%= hidden_field_tag :token, params[:token] %>
+  <div class="field font-bold"><%= @user.username %></div>
+  <div class="field border-top border-bottom padding-top padding-bottom">Para atualizar a sua senha escolha uma senha nova e confirme.</div>
+  <div class="field">
+    <%= password_field_tag :password, "", placeholder: "Escolha uma Senha", autofocus: true %>
+  </div>
+  <div class="field"><%= password_field_tag :password_confirmation, "", placeholder: "Confirme sua Senha" %>
+  </div>
+  <div class="actions">
+    <%= button_tag "SALVAR" %>
+    <span style="padding-left: 15px;"><%= link_to "Cancelar", root_path %></span>
+  </div>
+<% end %>

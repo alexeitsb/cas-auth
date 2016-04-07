@@ -1,0 +1,22 @@
+defaults: &DEFAULTS
+  authenticator:
+    name: "database"
+  mailer:
+    from: "<%= ENV['MAILER_FROM'] %>"
+  postmark:
+    api:
+      uri: "http://api.postmarkapp.com/email"
+  smsgateway:
+    device: "13432"
+    email: "alexeitsb@gmail.com"
+    api:
+      uri: "http://smsgateway.me/api/v3/messages/send"
+
+development:
+  <<: *DEFAULTS
+
+test:
+  <<: *DEFAULTS
+
+production:
+  <<: *DEFAULTS

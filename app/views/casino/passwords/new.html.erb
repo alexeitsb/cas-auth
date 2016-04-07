@@ -1,0 +1,10 @@
+<%= form_tag(main_app.casino_passwords_path) do %>
+  <div class="field border-top border-bottom padding-top padding-bottom">Informe o seu nome de usuário. Enviaremos um e-mail para você com as instruções para você gerar uma nova senha.</div>
+  <div class="field">
+    <%= text_field_tag :username, "", placeholder: "Usuário", title: "Por favor nos informe seu nome de usuário", autofocus: true %>
+  </div>
+  <div class="action">
+    <%= button_tag "ENVIAR" %>
+    <span style="padding-left: 15px;"><%= link_to "Cancelar", root_path %></span>
+  </div>
+<% end %>
