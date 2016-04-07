@@ -1,4 +1,7 @@
 class CasinoUser < ActiveRecord::Base
+  has_many :casino_user_clients
+  has_many :clients, through: :casino_user_clients
+
   before_validation :unmask_fields
 
   def password
