@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   mount CASino::Engine => "/", :as => "casino"
 
+  namespace :api, defaults: { format: :json } do
+    post "sign_in"
+    delete "sign_out"
+    post "create_user"
+    post "reset_password"
+    post "update_password"
+  end
+
   namespace :casino do
     resources :users do
       get "edit_password", on: :member

@@ -4,6 +4,9 @@ class CasinoUser < ActiveRecord::Base
 
   before_validation :unmask_fields
 
+  validates :username, presence: true, length: { in: 5..40 }, uniqueness: true
+  validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+
   def password
     @password ||= BCrypt::Password.new(encrypted_password)
   end
