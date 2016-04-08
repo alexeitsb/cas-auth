@@ -1,11 +1,14 @@
 class CASinoUser < ActiveRecord::Base
   has_many :casino_user_clients
   has_many :clients, through: :casino_user_clients
+  has_attached_file :avatar, styles: { s_32: "32x32", s_100: "100x100", s_400: "400x400" }, default_url: "avatar/:style/missing.png"
 
   before_validation :unmask_fields
 
   validates :username, presence: true, length: { in: 5..40 }, uniqueness: true
-  validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+  validates :name, presence: true, length: { in: 5..200 }
+  validates :document, presence: true, cpf: true
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   def password
     @password ||= BCrypt::Password.new(encrypted_password)

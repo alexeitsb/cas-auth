@@ -26,7 +26,7 @@ class ApiController < ApplicationController
           render json: { description: "O usuário #{user.username} foi adicionado ao cliente" }, status: :ok
         end
       else
-        user = CASinoUser.new(authenticator: SETTINGS["authenticator"]["name"], username: params[:username], email: params[:email], password: (password = SecureRandom.hex(4)))
+        user = CASinoUser.new(authenticator: SETTINGS["authenticator"]["name"], username: params[:username], name: params[:name], document: params[:document], email: params[:email], telephone: params[:telephone], password: (password = SecureRandom.hex(4)))
         if user.save
           casino_user_client = CASinoUserClient.create(casino_user: user, client: client)
           Notification.create(entity: Notification.entities["email"], from: SETTINGS["mailer"]["from"], to: user.email, subject: Templates::EmailCreateUser.new(casino_user_client, password).subject, body: Templates::EmailCreateUser.new(casino_user_client, password).body)

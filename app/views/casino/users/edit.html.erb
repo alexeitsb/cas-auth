@@ -1,0 +1,32 @@
+<%= image_tag @user.avatar.url(:s_100), onclick: "$('#casino_user_avatar').trigger('click');" %>
+<% if @user.avatar? %>
+  <%= link_to img_trash("Excluir esta imagem"), main_app.destroy_avatar_casino_user_path, method: :delete, data: { confirm: "Deseja excluir esta imagem?" } %>
+<% end %>
+<%= form_for @user, url: main_app.update_avatar_casino_user_path, method: :put, html: { multipart: true, id: "update_avatar", class: "invisible" } do |f| %>
+  <%= f.file_field :avatar, onchange: "$('#update_avatar').trigger('submit');" %>
+  <%= f.submit "ENVIAR" %>
+<% end %>
+
+<%= form_for(@user, url: main_app.casino_user_path) do |f| %>
+  <div class="field font-bold border-bottom"><%= @user.username %></div>
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Nome", title: "Por favor nos informe seu nome", autofocus: true %>
+    <div class="field_error"><%= error_message(@user, :name) %></div>
+  </div>
+  <div class="field">
+    <%= f.text_field :document, placeholder: "CPF", title: "Por favor nos informe o número do seu CPF", class: "mask_cpf" %>
+    <div class="field_error"><%= error_message(@user, :document) %></div>
+  </div>
+  <div class="field">
+    <%= f.text_field :email, placeholder: "E-mail", title: "Por favor nos informe seu e-mail" %>
+    <div class="field_error"><%= error_message(@user, :email) %></div>
+  </div>
+  <div class="field">
+    <%= f.text_field :telephone, placeholder: "Telefone", title: "Por favor nos informe o número do seu telefone", class: "mask_telephone" %>
+    <div class="field_error"><%= error_message(@user, :telephone) %></div>
+  </div>
+  <div class="actions">
+    <%= f.submit "SALVAR" %>
+    <span style="padding-left: 15px;"><%= link_to "Cancelar", root_path %></span>
+  </div>
+<% end %>

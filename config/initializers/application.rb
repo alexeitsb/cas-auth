@@ -1,3 +1,4 @@
+require "string"
 require "bcrypt"
 
 # Load YAML files.

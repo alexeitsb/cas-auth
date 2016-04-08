@@ -16,7 +16,7 @@ form {
   box-shadow: 0 0 7px 0 gray;
   border-radius: 3px;
   border: 1px solid #fff;
-  display: inline-block;
+
   width: 500px;
 }
 
@@ -83,4 +83,8 @@ form .field .field_error {
 
 .padding-bottom {
   padding-bottom: 10px;
+}
+
+.invisible {
+  display: none !important;
 }

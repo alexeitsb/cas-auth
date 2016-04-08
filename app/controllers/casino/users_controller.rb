@@ -1,12 +1,22 @@
 class CASino::UsersController < CASino::ApplicationController
-  before_action :check_signed_in, only: [:edit_password, :update_password]
+  before_action :check_signed_in, only: [:profile, :password]
+  before_action :find_user, except: [:profile, :password]
+
+  def edit
+  end
+
+  def update
+    if @user.update(casino_user_params)
+      flash.now[:notice] = "Suas informações foram atualizadas com sucesso!"
+    end
+    render :edit
+  end
 
   def edit_password
-    @user = CasinoUser.find(params[:id])
   end
 
   def update_password
-    if @user = CasinoUser.find(params[:id])
+    if @user
       if params[:password] == params[:password_confirmation]
         unless params[:password].size >= 4
           flash.now[:error] = "A senha nova deve ter pelo menos quatro caracteres."
@@ -24,10 +34,42 @@ class CASino::UsersController < CASino::ApplicationController
     render "edit_password"
   end
 
+  def update_avatar
+    @user.avatar = params[:casino_user][:avatar]
+    if @user.valid_attribute?(:avatar)
+      @user.save(validate: false)
+    else
+      @user = CASinoUser.find(params[:id])
+      flash.now[:error] = "O arquivo selecionado não é uma imagem."
+    end
+    render "edit"
+  end
+
+  def destroy_avatar
+    @user.update_attributes(avatar: nil)
+    render "edit"
+  end
+
+  def profile
+    redirect_to main_app.edit_casino_user_path(current_user)
+  end
+
+  def password
+    redirect_to main_app.edit_password_casino_user_path(current_user)
+  end
+
 
   private
 
+  def casino_user_params
+    params.require(:casino_user).permit(:name, :document, :email, :telephone, :avatar)
+  end
+
   def check_signed_in
     redirect_to "/401.html" unless signed_in?
+  end
+
+  def find_user
+    @user = CASinoUser.find(params[:id])
   end
 end

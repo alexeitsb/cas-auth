@@ -4,6 +4,7 @@ class CreateClients < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :uri
+      t.string :callback_uri
       t.string :api_token
 
       t.timestamps null: false

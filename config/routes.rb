@@ -10,13 +10,17 @@ Rails.application.routes.draw do
   end
 
   namespace :casino do
-    resources :users do
+    resources :users, only: [:edit, :update] do
       get "edit_password", on: :member
       put "update_password", on: :member
+      put "update_avatar", on: :member
+      delete "destroy_avatar", on: :member
     end
     resources :passwords, only: [:new, :create] do
       get "edit", on: :collection
       put "update", on: :collection, as: "update"
     end
   end
+  get "profile" => "casino/users#profile"
+  get "password" => "casino/users#password"
 end

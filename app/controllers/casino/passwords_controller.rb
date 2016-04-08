@@ -3,11 +3,11 @@ class CASino::PasswordsController < CASino::ApplicationController
   end
 
   def create
-    if user = CasinoUser.find_by_username(params[:username])
+    if user = CASinoUser.find_by_username(params[:username])
       token = ""
       loop do
         token = SecureRandom.hex(50)
-        break unless CasinoUser.exists?(reset_password_token: token)
+        break unless CASinoUser.exists?(reset_password_token: token)
       end
       user.update_attributes(reset_password_token: token, reset_password_created_at: Time.now)
       Notification.create(entity: Notification.entities["email"], from: SETTINGS["mailer"]["from"], to: user.email, subject: Templates::EmailUpdatePassword.new(user).subject, body: Templates::EmailUpdatePassword.new(user).body)
@@ -19,12 +19,12 @@ class CASino::PasswordsController < CASino::ApplicationController
   end
 
   def edit
-    @user = CasinoUser.find_by_reset_password_token(params[:token])
+    @user = CASinoUser.find_by_reset_password_token(params[:token])
     redirect_to root_path, error: "O usuário não foi encontrado." unless @user
   end
 
   def update
-    if @user = CasinoUser.find_by_reset_password_token(params[:token])
+    if @user = CASinoUser.find_by_reset_password_token(params[:token])
       if params[:password] == params[:password_confirmation]
         unless params[:password].size >= 4
           flash.now[:error] = "A senha deve ter pelo menos quatro caracteres."
