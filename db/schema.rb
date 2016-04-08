@@ -104,9 +104,19 @@ ActiveRecord::Schema.define(version: 20160407182839) do
 
   add_index "casino_two_factor_authenticators", ["user_id"], name: "index_casino_two_factor_authenticators_on_user_id", using: :btree
 
+  create_table "casino_user_clients", force: :cascade do |t|
+    t.integer  "casino_user_id", limit: 4
+    t.integer  "client_id",      limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "casino_user_clients", ["casino_user_id"], name: "index_casino_user_clients_on_casino_user_id", using: :btree
+  add_index "casino_user_clients", ["client_id"], name: "index_casino_user_clients_on_client_id", using: :btree
+
   create_table "casino_users", force: :cascade do |t|
-    t.string   "authenticator",             limit: 255,   null: false
-    t.string   "username",                  limit: 255,   null: false
+    t.string   "authenticator",             limit: 255,                   null: false
+    t.string   "username",                  limit: 255,                   null: false
     t.string   "encrypted_password",        limit: 255
     t.string   "name",                      limit: 255
     t.string   "email",                     limit: 255
@@ -115,6 +125,7 @@ ActiveRecord::Schema.define(version: 20160407182839) do
     t.string   "reset_password_token",      limit: 255
     t.string   "reset_password_created_at", limit: 255
     t.text     "extra_attributes",          limit: 65535
+    t.boolean  "admin",                                   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name",          limit: 255
@@ -124,6 +135,15 @@ ActiveRecord::Schema.define(version: 20160407182839) do
   end
 
   add_index "casino_users", ["authenticator", "username"], name: "index_casino_users_on_authenticator_and_username", unique: true, using: :btree
+
+  create_table "clients", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.string   "uri",         limit: 255
+    t.string   "api_token",   limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "entity",       limit: 4

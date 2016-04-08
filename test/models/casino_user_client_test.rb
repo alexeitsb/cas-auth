@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CASinoUserClientTest < ActiveSupport::TestCase
+class CasinoUserClientTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

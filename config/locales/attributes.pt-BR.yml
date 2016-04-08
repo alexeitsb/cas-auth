@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        casino_user:
+          attributes:
+            username:
+              blank: Por favor informe o seu nome de usuário
+              too_short: Por favor informe um nome de usuário que tenha no mínimo 5 e no máximo 40 caracteres
+              too_long: Por favor informe um nome de usuário que tenha no mínimo 5 e no máximo 40 caracteres
+              taken: Este nome de usuário já está em uso. O nome de usuário precisa ser único. Por favor escolha um novo nome de usuário.
+            email:
+              blank: Por favor informe o seu e-mail
+              invalid: Este e-mail é inválido
