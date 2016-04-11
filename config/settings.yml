@@ -8,8 +8,6 @@ defaults: &DEFAULTS
     api:
       uri: "http://api.postmarkapp.com/email"
   smsgateway:
-    device: "13432"
-    email: "alexeitsb@gmail.com"
     api:
       uri: "http://smsgateway.me/api/v3/messages/send"
 

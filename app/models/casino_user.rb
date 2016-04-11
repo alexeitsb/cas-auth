@@ -10,6 +10,8 @@ class CASinoUser < ActiveRecord::Base
   validates :document, presence: true, cpf: true
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
+  scope :create_password, -> { where("encrypted_password = ?", "") }
+
   def password
     @password ||= BCrypt::Password.new(encrypted_password)
   end
