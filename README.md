@@ -1,6 +1,7 @@
 ## cas-auth
 Single Sign On solution using CASino.
-It manage multiple clients and supports user authentication via web browser and API.
+
+It manage multiple clients and support user authentication via web browser and API.
 
 ### WEB Features
 
@@ -18,3 +19,5 @@ It manage multiple clients and supports user authentication via web browser and 
 * Create new user and associate the user to a client
 * Update password
 * Generate a new password case user forgot it.
+
+Users are notified via e-mail and SMS.
