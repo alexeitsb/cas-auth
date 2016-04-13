@@ -1,0 +1,10 @@
+<%= form_for @client do |f| %>
+  <%= f.text_field :description, placeholder: "Descrição", autofocus: true %>
+  <%= f.text_field :name, placeholder: "Nome" %>
+  <%= f.text_field :uri, placeholder: "URL do Cliente" %>
+  <%= f.text_field :callback_uri, placeholder: "URL para Atualização do Usuário via API" %>
+  <div style="margin-top: 25px;">
+    <%= f.submit "ENVIAR" %>
+    <span style="margin-left: 15px;"><%= link_to "Cancelar", clients_path %></span>
+  </div>
+<% end %>

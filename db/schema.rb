@@ -138,8 +138,8 @@ ActiveRecord::Schema.define(version: 20160407182839) do
   add_index "casino_users", ["authenticator", "username"], name: "index_casino_users_on_authenticator_and_username", unique: true, using: :btree
 
   create_table "clients", force: :cascade do |t|
-    t.string   "name",         limit: 255
     t.string   "description",  limit: 255
+    t.string   "name",         limit: 255
     t.string   "uri",          limit: 255
     t.string   "callback_uri", limit: 255
     t.string   "api_token",    limit: 255

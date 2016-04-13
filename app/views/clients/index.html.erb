@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left;">DESCRIÇÃO</th>
+      <th style="text-align: left;">NOME</th>
+      <th style="text-align: left;">API TOKEN</th>
+      <th style="text-align: left;">CRIADO EM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% clients.each do |client| %>
+      <tr>
+        <td><%= link_to client.description, edit_client_path(client) %></td>
+        <td><%= client.name %></td>
+        <td><%= client.api_token %></td>
+        <td><%= h_datetime(client.created_at) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div style="margin-top: 50px;"><%= link_to "AIDCIONAR CLIENTE", new_client_path %></div>

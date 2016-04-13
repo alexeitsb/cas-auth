@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post "update_password"
   end
 
+  resources :clients
   namespace :casino do
     resources :users, only: [:edit, :update] do
       get "edit_password", on: :member
