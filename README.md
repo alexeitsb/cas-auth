@@ -22,6 +22,7 @@ Single Sign On solution using [gem CASino](https://github.com/rbCAS/CASino). It 
 * Generate a new password case user forgot it.
 
 Users are notified via e-mail and SMS.
+
 Set a callback_uri to client and cas-auth will callback your client everytime a user updates his profile.
 
 ### Setup
