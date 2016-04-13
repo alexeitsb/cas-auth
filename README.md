@@ -22,3 +22,15 @@ Single Sign On solution using [gem CASino](https://github.com/rbCAS/CASino). It 
 * Generate a new password case user forgot it.
 
 Users are notified via e-mail and SMS.
+
+### Setup
+
+rake db:create
+rake db:migrate
+rake db:seed
+
+### Services
+
+* [postmark](https://postmarkapp.com/) - E-mail delivery
+* [SMS Gateway](https://smsgateway.me/) - SMS delivery
+* [AWS S3](https://aws.amazon.com/s3/) - File storage
