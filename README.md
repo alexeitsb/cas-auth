@@ -2,7 +2,7 @@
 
 By [alexeitsb](http://alexeitsb.github.io)
 
-Single Sign On solution using CASino. It manage multiple clients and support user authentication via web browser and API.
+Single Sign On solution using [gem CASino](https://github.com/rbCAS/CASino). It manage multiple clients and support user authentication via web browser and API.
 
 ### WEB Features
 
