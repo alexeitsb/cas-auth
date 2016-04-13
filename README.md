@@ -31,6 +31,11 @@ rake db:seed
 
 ### Services
 
-* [postmark](https://postmarkapp.com/) - E-mail delivery
+* [Postmark](https://postmarkapp.com/) - E-mail delivery
 * [SMS Gateway](https://smsgateway.me/) - SMS delivery
 * [AWS S3](https://aws.amazon.com/s3/) - File storage
+
+### Environment vars
+
+cp config/vars.rb.example config/vars.rb
+And set vars!
