@@ -6,7 +6,7 @@ Single Sign On solution using [gem CASino](https://github.com/rbCAS/CASino). It 
 
 ### WEB Features
 
-* Clients management by admin user
+* Clients management (admin users only)
 * Sign in (username and password)
 * Sign out
 * Update profile including avatar picture uploaded to AWS S3
