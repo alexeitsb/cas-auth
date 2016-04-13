@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CasAuth</title>
+  <title><%= ENV["TITLE"] || "CAS-auth" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if ENV["LOGO_URI"].present? %>
+    <div class="logo"><%= image_tag ENV["LOGO_URI"] %></div>
+  <% end %>
   <div class="flash">
     <% if flash.any? %>
       <div class="flash_<%= flash.first[0] %>"><%= flash.first[1] %></div>
