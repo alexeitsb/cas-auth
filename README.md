@@ -1,4 +1,7 @@
 ## cas-auth
+
+By [alexeitsb](http://plataformatec.com.br/).
+
 Single Sign On solution using CASino.
 
 It manage multiple clients and support user authentication via web browser and API.
