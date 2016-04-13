@@ -62,7 +62,9 @@ class CASino::UsersController < CASino::ApplicationController
   private
 
   def casino_user_params
-    params.require(:casino_user).permit(:name, :document, :email, :telephone, :avatar)
+    p = params.require(:casino_user).permit(:name, :document, :email, :telephone, :avatar)
+    p.merge!(updated: true) if update?
+    return p
   end
 
   def check_signed_in

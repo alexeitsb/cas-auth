@@ -2,10 +2,21 @@ module Works
   extend self
 
   def create_user_password
-    CasinoUser.create_password.each do |user|
+    CASinoUser.create_password.each do |user|
       password = SecureRandom.hex(4)
       user.update_attributes(password: password)
       Notification.create(entity: Notification.entities["sms"], to: user.telephone, body: Templates::SmsCreatePassword.new(user, password).body)
+    end
+  end
+
+  def callback_user
+    CASinoUserClient.to_callback.each do |casino_user_client|
+      begin
+        response = HTTParty.post(casino_user_client.client.callback_uri, body: { username: casino_user_client.casino_user.username, name: casino_user_client.casino_user.name, document: casino_user_client.casino_user.document, email: casino_user_client.casino_user.email, telephone: casino_user_client.casino_user.telephone })
+        casino_user_client.casino_user.update_attributes(updated: false) if response.code == 200
+      rescue
+        next
+      end
     end
   end
 
