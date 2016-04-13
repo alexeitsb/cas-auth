@@ -25,9 +25,9 @@ Users are notified via e-mail and SMS.
 
 ### Setup
 
-rake db:create
-rake db:migrate
-rake db:seed
+* rake db:create
+* rake db:migrate
+* rake db:seed
 
 ### Services
 
@@ -38,4 +38,5 @@ rake db:seed
 ### Environment vars
 
 cp config/vars.rb.example config/vars.rb
+
 And set vars!
