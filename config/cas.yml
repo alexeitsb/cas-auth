@@ -49,8 +49,4 @@ production:
         username_column: "username"
         password_column: "encrypted_password"
         extra_attributes:
-          email: "email"
           name: "name"
-          document: "document"
-          telephone: "telephone"
-          services: "services"
