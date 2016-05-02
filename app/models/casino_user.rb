@@ -5,10 +5,10 @@ class CASinoUser < ActiveRecord::Base
 
   before_validation :unmask_fields
 
-  # validates :username, presence: true, length: { in: 5..40 }, uniqueness: true
-  # validates :name, presence: true, length: { in: 5..200 }
-  # validates :document, presence: true, cpf: true, unless: "admin"
-  # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates :username, presence: true, length: { in: 5..40 }, uniqueness: true
+  validates :name, presence: true, length: { in: 5..200 }
+  validates :document, presence: true, cpf: true, unless: "admin"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   scope :create_password, -> { where("encrypted_password = ?", "") }
 
