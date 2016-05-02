@@ -9,7 +9,7 @@ module Works
     end
   end
 
-  def callback_user
+  def callback_client
     CASinoUserClient.to_callback.each do |casino_user_client|
       begin
         response = HTTParty.post(casino_user_client.client.callback_uri, body: { username: casino_user_client.casino_user.username, name: casino_user_client.casino_user.name, document: casino_user_client.casino_user.document, email: casino_user_client.casino_user.email, telephone: casino_user_client.casino_user.telephone })
