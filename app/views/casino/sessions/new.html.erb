@@ -1,3 +1,4 @@
+-----
 <%= form_tag(login_path, id: "form_login") do %>
   <%= hidden_field_tag :lt, CASino::LoginTicket.create.ticket %>
   <%= hidden_field_tag :service, params[:service] unless params[:service].nil? %>
