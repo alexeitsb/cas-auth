@@ -16,7 +16,7 @@ class ApiController < ApplicationController
   end
 
   def find_user
-    if user = User.find_by_username(params[:username])
+    if user = CASinoUser.find_by_username(params[:username])
       render json: { user: user.username }, status: :ok
     else
       render json: { user: "" }, status: :ok
