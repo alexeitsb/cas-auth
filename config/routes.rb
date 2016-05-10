@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     post "sign_in"
     delete "sign_out"
+    get "find_user"
     post "create_user"
     post "reset_password"
     post "update_password"

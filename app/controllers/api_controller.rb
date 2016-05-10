@@ -15,6 +15,14 @@ class ApiController < ApplicationController
     render json: { }, status: :ok
   end
 
+  def find_user
+    if user = User.find_by_username(params[:username])
+      render json: { user: user.username }, status: :ok
+    else
+      render json: { user: "" }, status: :ok
+    end
+  end
+
   def create_user
     if client = Client.find_by_api_token(params[:client_token])
       if user = CASinoUser.find_by_username(params[:username])
