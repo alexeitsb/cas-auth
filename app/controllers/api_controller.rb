@@ -27,7 +27,7 @@ class ApiController < ApplicationController
     if client = Client.find_by_api_token(params[:client_token])
       if user = CASinoUser.find_by_username(params[:username])
         if CASinoUserClient.find_by_casino_user_id_and_client_id(user.id, client.id)
-          render json: { description: "O usuário #{user.username} já possui este cliente" }, status: :unauthorized
+          render json: { description: "O usuário #{user.username} já está cadastrado no cliente #{client.name}" }, status: :unauthorized
         else
           casino_user_client = CASinoUserClient.create(casino_user: user, client: client)
           Notification.create(entity: Notification.entities["email"], from: SETTINGS["mailer"]["from"], to: user.email, subject: Templates::EmailAddClientToUser.new(casino_user_client).subject, body: Templates::EmailAddClientToUser.new(casino_user_client).body)
