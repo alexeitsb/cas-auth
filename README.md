@@ -31,12 +31,6 @@ Set a callback_uri to client and cas-auth will callback your client everytime a 
 * rake db:migrate
 * rake db:seed
 
-### Services
-
-* [Postmark](https://postmarkapp.com/) - E-mail delivery
-* [SMS Gateway](https://smsgateway.me/) - SMS delivery
-* [AWS S3](https://aws.amazon.com/s3/) - File storage
-
 ### Environment vars
 
 cp config/vars.rb.example config/vars.rb

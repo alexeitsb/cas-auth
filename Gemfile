@@ -38,8 +38,6 @@ gem 'rails_12factor', group: :production
 gem 'pg', group: :production
 # Use unicorn as the app server.
 gem 'unicorn'
-# Postmark adapter for ActionMailer.
-gem 'postmark-rails'
 # The official AWS SDK for Ruby.
 gem 'aws-sdk'
 # Easy file attachment management for ActiveRecord.

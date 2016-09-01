@@ -4,12 +4,9 @@ defaults: &DEFAULTS
     name: "database"
   mailer:
     from: "<%= ENV['MAILER_FROM'] %>"
-  postmark:
+  notifier:
     api:
-      uri: "http://api.postmarkapp.com/email"
-  smsgateway:
-    api:
-      uri: "http://smsgateway.me/api/v3/messages/send"
+      uri: "<%= ENV['NOTIFIER_API_URI'] %>"
 
 development:
   <<: *DEFAULTS
