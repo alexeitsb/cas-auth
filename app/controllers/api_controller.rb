@@ -38,7 +38,7 @@ class ApiController < ApplicationController
         if user.save
           casino_user_client = CASinoUserClient.create(casino_user: user, client: client)
           Notification.create(entity: Notification.entities["email"], from: SETTINGS["mailer"]["from"], to: user.email, subject: Templates::EmailCreateUser.new(casino_user_client, password).subject, body: Templates::EmailCreateUser.new(casino_user_client, password).body)
-          Notification.create(entity: Notification.entities["sms"], to: user.telephone, body: Templates::EmailCreateUser.new(casino_user_client, password).body)
+          Notification.create(entity: Notification.entities["sms"], to: user.telephone, body: Templates::SmsCreateUser.new(casino_user_client, password).body)
           render json: { description: "O usuário #{user.username} foi criado e adicionado ao cliente" }, status: :ok
         else
           render json: user.errors, status: :unprocessable_entity
