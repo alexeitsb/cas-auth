@@ -50,3 +50,4 @@ production:
         password_column: "encrypted_password"
         extra_attributes:
           name: "name"
+          clients: <%= clients.map(&:name) %>
