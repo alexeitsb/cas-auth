@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407182839) do
+ActiveRecord::Schema.define(version: 20160909143658) do
 
   create_table "casino_auth_token_tickets", force: :cascade do |t|
     t.string   "ticket",     limit: 255, null: false
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 20160407182839) do
     t.string   "reset_password_created_at", limit: 255
     t.text     "extra_attributes",          limit: 65535
     t.boolean  "admin",                                   default: false
+    t.string   "clients_names",             limit: 255
     t.boolean  "updated",                                 default: false
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -50,3 +50,7 @@ production:
         password_column: "encrypted_password"
         extra_attributes:
           name: "name"
+          document: "document"
+          email: "email"
+          telephone: "telephone"
+          clients: "trk;"
